@@ -1,63 +1,51 @@
-// const express= require('express')
-// const colecaoUF= require('./dados/dados')
+import express from 'express'
+const colecaoUF= require('./dados/dados')
 
-// const app= express()
+const app= express()
 
-// app.get('/ufs', (req,res)=> 
-// {
-//     res.json(colecaoUF)
-// })
+const buscarPorNome= (nomeUf)=>{
+    return colecaoUF.filter(i=>i.nome.toLowerCase().includes(nomeUf.toLowerCase()))
+}
 
-
-// app.get('/ufs/:iduf', (req,res){
-//     let uf;
-//     let mensagemErro= '';
-//     const idUF=parseInt(req.params.iduf);
-
-//     if(!(isNaN(idUF))){
-//         uf= colecaoUF.colecaoUF.find(u=> u.id===idUF);
-
-//         if (!uf){
-//             mensagemErro='uf nao encontrada'
-//         }
-
-//         else{
-//             mensagemErro='req inválida'
-//         }
-//     }
-    
-    
-
-
-// })
-
-
-// app.listen(8080, ()=>{
-//     console.log('servidor iniciado')
-// })
-
-
-
-import express from 'express';
-import colecaoUF from './dados/dados.js';
-
-
-const app= express();
-let lista;
-
-app.get('/ufs', (req,res){
+app.get('/ufs', (req,res)=> 
+{
+    const nomeUF= req.query.busca;
+    const resultado= nomeUF? buscarPorNome(nomeUf): colecaoUF
     res.json(colecaoUF)
+
+    if
 })
 
 
-app.get('/colecaoUF/:idUFF'){
-    const colecao= parseInt(req.params.colecaoUF);
-    lista= colecaoUF.colecaoUF.find(u=> u.id===colecao)
+app.get('/ufs/:iduf', (req,res){
+    let uf;
+    let mensagemErro= '';
+    const idUF=parseInt(req.params.iduf);
 
-    if(!(isNaN(colecao)){
+    if(!(isNaN(idUF))){
+        uf= colecaoUF.colecaoUF.find(u=> u.id.toLo===idUF);
 
-    })
-}
+        if (!uf){
+            mensagemErro='uf nao encontrada'
+        }
+
+        else{
+            mensagemErro='req inválida'
+        }
+    }
+    
+    
+
+
+})
+
+
+app.listen(8080, ()=>{
+    console.log('servidor iniciado')
+})
+
+
+
 
 
 
