@@ -1,10 +1,12 @@
 import express from 'express'
+import mysql from 'mysql2/promise'
 
-let pool;
 
-pool = mysql.createPool({
+
+const pool = mysql.createPool({
     host:'localhost',
-    user: 'hoot',
+    user: 'root',
     password: 'nova_senha',
     database: 'clinica'
 })
+export default pool;
