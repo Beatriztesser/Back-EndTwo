@@ -27,7 +27,7 @@ export async function retornaMedicosNome(nome){
     medicos.nome,
     medicos.telefone,
     medicos.email,
-    especialidades.especialidade
+    especialidades.especialidade, 
     FROM 
         medicos
     INNER JOIN 
@@ -72,3 +72,5 @@ export async function executaQuery(conexao,query){
 
 }
     
+
+

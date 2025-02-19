@@ -1,12 +1,14 @@
-import express from 'express'
-import mysql from 'mysql2/promise'
+// import express from 'express'
+// import mysql from 'mysql2/promise'
 
 
 
-const pool = mysql.createPool({
-    host:'localhost',
-    user: 'root',
-    password: 'Suporte99',
-    database: 'clinica'
-})
-export default pool;
+// const pool = mysql.createPool({
+//     host:'localhost',
+//     user: 'root',
+//     password: 'Suporte99',
+//     database: 'clinica'
+// })
+// export default pool;
+
+

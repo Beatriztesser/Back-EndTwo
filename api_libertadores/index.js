@@ -53,7 +53,7 @@ app.put('/campeonatos/:id', async (req,res)=>{
     if (campeao=== undefined|| vice ===undefined || ano=== undefined) {
         res.status(400).send('Todos os campos devem ser preenchidos!')
     }else{
-        const resultado= await atualizacameponato(id, campeao, vice, ano);
+        const resultado= await atualizacampeonato(id, campeao, vice, ano);
         if (resultado.affectedRows>0) {
             res.status(202).send('dados atualizados com sucesso')
             
@@ -72,6 +72,9 @@ app.post('/campeonatos', async (req, res) =>{
     await cadastraCampeonato(campeao, vice, ano);
     res.status(204).send({"Mensagem": "Cadastro efetivado com sucesso!"});
 })
+
+
+
 
 app.get('/campeonatos', async (req, res) =>{
     let campeonatos;
