@@ -10,6 +10,8 @@ export async function atualizaCampeonato(id, campeao, vice, ano){
     return resposta;
 }
 
+
+
 export async function atualizaCampeonatoPacial(id, campos){
     const conexao= await pool.getConnection()
     const colunas= Object.keys(campos).map(campo=>`${campo}=?`).join(",");

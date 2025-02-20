@@ -1,5 +1,5 @@
 import { retorna, retornaID, retornaAno } from "./servico/retorna";
-import {cadastra} from './servico/cadastro'
+import {cadastra, atualizaTudo} from './servico/cadastro'
 
 const app=express()
 
@@ -49,6 +49,36 @@ app.post('/campeonatos', async (req, res)=>{
 })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.put('/camponato/:id', async(req,res)=>{
+    const{id}=req.params
+    const {campeao}=req.body
+    const{vice}=req.body
+    const {time}=req.body
+
+    if (campeao===undefined ||vice===undefined||time==undefined){
+        res.json(400)
+    }
+
+    const resposta= atualizaTudo(campeao,vice,time)
+})
 
 
 app.listen(9000, async ()=>{
